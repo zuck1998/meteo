@@ -10,10 +10,10 @@ import Button from '@mui/material/Button';
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{backgroundColor:'transparent', color:'#8b8b8b'}}>
+      <AppBar position="static"style={{ background: 'transparent', boxShadow: 'none', borderRadius:'25px'}}>
         <Toolbar>
 
-          <Typography style={{fontSize:'2em'}} variant="h3" component="div" sx={{ flexGrow: 1 }}>
+          <Typography style={{fontSize:'40px', color:'#000000'}} variant="h3" component="div" sx={{ flexGrow: 1 }}>
             Meteo
           </Typography>
         </Toolbar>

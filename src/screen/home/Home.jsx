@@ -1,9 +1,11 @@
 import React from 'react'
 import { TextField } from '@mui/material'
+import background from ".../images/"
+
 
 function Home() {
   return (
-    <div className='container'>
+    <div className='container' style={{backgroundImage: `url(${background})`}}>
         <TextField
         style={{width: "100%"}}
           id="filled-textarea"

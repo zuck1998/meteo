@@ -10,7 +10,7 @@ import Home from './screen/home/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <BrowserRouter>
       <Navbar/>
         <Routes>
