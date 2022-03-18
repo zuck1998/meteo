@@ -4,21 +4,29 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import CardHeader from '@mui/material/CardHeader';
 import { useState } from 'react';
+import { Details } from '@mui/icons-material';
 
 export default function MyCard({localtime,icon, }) {
 
   const[cardState, setcardState] = useState(false)
 
+  function Details(){
+    
+    return(
+      <div>
+        <h1>{localtime}</h1>
+      </div>
+    )
+  }
+
   return (
     <div>
       
-        <Card onClick={() => 
-        <div>
-          {setcardState(true)}
-          
-        </div>
+      <Card onClick={() => {
 
-        }>
+      setcardState(!cardState);
+    
+    }}>
           <CardActionArea >
                 <CardHeader
                 title={localtime}
@@ -30,8 +38,11 @@ export default function MyCard({localtime,icon, }) {
                 image={icon}
                 alt=""
               />
-          </CardActionArea>
+          </CardActionArea>      
+
         </Card>
+
+        {cardState? Details() : null}
   
     </div>
   );
