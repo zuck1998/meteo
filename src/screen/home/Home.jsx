@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { TextField } from '@mui/material'
 import Card from '../../components/card/Card';
-import { ZoomInMap } from '@mui/icons-material';
+import "./Home.scss"
 
 function Home() {
 
@@ -11,7 +11,7 @@ function Home() {
  
 
   const  fetchZona=() => {
-      fetch('http://api.weatherapi.com/v1/forecast.json?key=f656a3e4a7054753873211018220803&q='+ filtro + '&days=4')
+      fetch('http://api.weatherapi.com/v1/forecast.json?key=f656a3e4a7054753873211018220803&q='+ filtro + '&days=3')
         .then(response => {
           return response.json();
         })
@@ -45,25 +45,41 @@ console.log(zona);
             setFiltro(ev.target.value);
         }}
         />
-        <button onClick={
+        <button className='btn' style={{width:'100px', height:'30px'}} onClick={
           () =>  {fetchZona()}
-        }/>
+        } > Previsioni </button>
         
-        {
-          loading? null :
-          <div>
+         <h3>Premi le Card per i dettagli</h3>
+
+        <div className='navCard'>
+
+         { loading? null :
+
+
+
+          zona.forecast.forecastday.map((item) => {
+
+
+            console.log(item);
+            return (
+
+              <div>
             <Card
-            zona={zona}
-                key= {zona.location.name}
-                name={zona.location.name}
-                localtime={zona.location.localtime} 
-                icon={zona.current.condition.icon}
-                stato={zona.current.condition.text}
+                key= {item.date_epoch}
+                name={item.name}
+                localtime={item.date} 
+                icon={item.day.condition.icon}
+                stato={item.day.condition.text}
+                
             />
-          
-           
+                
+
+                </div>
+          )
+
+          })} 
          </div>
-        }
+        
     </div>
   )
 }
