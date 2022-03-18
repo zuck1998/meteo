@@ -70,6 +70,7 @@ console.log(zona);
                 localtime={item.date} 
                 icon={item.day.condition.icon}
                 stato={item.day.condition.text}
+                temp={item.day.maxtemp_c}
                 
             />
                 
