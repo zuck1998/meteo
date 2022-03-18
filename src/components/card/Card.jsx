@@ -6,7 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import { useState } from 'react';
 import "./Details.scss"
 
-export default function MyCard({localtime,icon, temp}) {
+export default function MyCard({localtime,icon, temp,stato}) {
 
   const[cardState, setcardState] = useState(false)
 
@@ -14,7 +14,7 @@ export default function MyCard({localtime,icon, temp}) {
     
     return(
       <div className='details'>
-        <h1>{temp}</h1>
+        <h1>{temp}°C</h1>
       </div>
     )
   }
@@ -30,6 +30,7 @@ export default function MyCard({localtime,icon, temp}) {
             <CardActionArea >
                   <CardHeader
                   title={localtime}
+                  subheader={stato}
   
                 />
                 <CardMedia 
@@ -42,7 +43,7 @@ export default function MyCard({localtime,icon, temp}) {
 
         </Card>
       </div>
-      <div className='details'>
+      <div>
         {cardState? Details() : null}
       </div>
     </div>
